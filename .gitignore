@@ -1,0 +1,91 @@
+# System
+.DS_Store
+Thumbs.db
+
+# IDEs / editors
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+venv/
+.venv/
+env/
+ENV/
+env.bak/
+pip-wheel-metadata/
+*.egg-info/
+.eggs/
+
+# Virtualenv & environment files
+.env
+.env.*
+local_settings.py
+.python-version
+
+# Testing / caches / coverage
+.pytest_cache/
+.mypy_cache/
+.dmypy.json
+.coverage
+.coverage.*
+.cache
+htmlcov/
+
+# Packaging / build
+build/
+dist/
+pip-wheel-metadata/
+wheels/
+
+# Node (if used)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnp/
+.pnp.js
+
+# Logs
+logs/
+*.log
+
+# Data, media, models, outputs (do not commit large/generated files)
+data/
+datasets/
+downloads/
+output/
+outputs/
+models/
+artifacts/
+cache/
+tmp/
+*.sqlite3
+
+# Media files (often large; remove if you do want them in repo)
+*.mp4
+*.mkv
+*.wav
+*.ogg
+*.flac
+*.mp3
+
+# Secrets / keys / credentials
+credentials/
+secrets/
+*.key
+*.pem
+*.p12
+
+# Jupyter
+.ipynb_checkpoints
+
+# Misc
+*.swp
+*.bak
+*.tmp
