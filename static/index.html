@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>YouTube Summarizer</title>
+
+<style>
+
+body{
+font-family: Arial;
+max-width: 900px;
+margin:auto;
+}
+
+#logs{
+background:black;
+color:#00ff00;
+padding:10px;
+height:200px;
+overflow:auto;
+font-family:monospace;
+}
+
+#result{
+border:2px solid #444;
+padding:20px;
+margin-top:20px;
+max-height:300px;
+overflow:auto;
+background:#f5f5f5;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h2>YouTube Summarizer</h2>
+
+<input id="url" style="width:70%" placeholder="URL de YouTube">
+<button onclick="start()">Resumir</button>
+
+<h3>Progreso</h3>
+<div id="logs"></div>
+
+<h3>Resumen</h3>
+<div id="result"></div>
+
+<script>
+
+function log(text){
+
+const logs = document.getElementById("logs")
+logs.innerHTML += text + "<br>"
+logs.scrollTop = logs.scrollHeight
+
+}
+
+function start(){
+
+document.getElementById("logs").innerHTML=""
+document.getElementById("result").innerHTML=""
+
+const url = document.getElementById("url").value
+
+const ws = new WebSocket("ws://localhost:8000/ws")
+
+ws.onopen = () => {
+
+ws.send(JSON.stringify({url:url}))
+
+}
+
+ws.onmessage = (event)=>{
+
+try{
+
+const data = JSON.parse(event.data)
+
+if(data.type==="result"){
+document.getElementById("result").innerText=data.summary
+}
+
+}catch{
+
+log(event.data)
+
+}
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
